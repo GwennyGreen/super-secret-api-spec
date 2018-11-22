@@ -1,0 +1,120 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: hallo@annapellegrino.de
+    name: Anna Pellegrino
+  description: Manage lists of positive and negative phrases. This API is designed for an interactive installation, which displays phrases on a LED wall with a lenticular effect.
+  license:
+    name: All rights reserved
+  title: LED Wall phrases
+  version: "1.0"
+servers:
+- description: Production
+  url: https://phrases.tiqua.de/api/wall/v1
+- description: Staging
+  url: https://staging.phrases.tiqua.de/api/wall/v1
+- description: Development and testing
+  url: https://dev.phrases.tiqua.de/api/wall/v1
+- description: Local development
+  url: http://localhost:5101/api/wall/v1
+tags:
+- description: Negative phrases
+  name: negative_phrases
+- description: Positive phrases
+  name: positive_phrases
+paths:
+  /negative/phrases:
+    get:
+      description: Returns a list of negative phrases in no particular order.
+      operationId: get_negative_phrases
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Phrase'
+                type: array
+          description: List of negative phrases
+      summary: Returns a list of negative phrases
+      tags:
+      - negative_phrases
+  /negative/phrases/{id}:
+    get:
+      operationId: get_negative_phrase_by_id
+      parameters:
+      - description: ID of the phrase
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Phrase'
+          description: The negative phrase
+      summary: Returns the negative phrase with the given ID
+      tags:
+      - negative_phrases
+  /positive/phrases:
+    get:
+      description: Returns a list of positive phrases in no particular order.
+      operationId: get_positive_phrases
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Phrase'
+                type: array
+          description: List of positive phrases
+      summary: Returns a list of positive phrases
+      tags:
+      - positive_phrases
+  /positive/phrases/{id}:
+    get:
+      operationId: get_positive_phrase_by_id
+      parameters:
+      - description: ID of the phrase
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Phrase'
+          description: The positive phrase
+      summary: Returns the positive phrase with the given ID
+      tags:
+      - positive_phrases
+components:
+  schemas:
+    Phrase:
+      example:
+        expires: 6
+        id: 0
+        text: text
+      properties:
+        id:
+          format: int64
+          type: integer
+        text:
+          type: string
+        expires:
+          format: int64
+          type: integer
+      type: object

@@ -1,0 +1,14 @@
+{
+  "name": "super-secret-api-spec",
+  "version": "0.0.1",
+  "repository": "git@github.com:GwennyGreen/super-secret-led-wall.git",
+  "author": "Anna Pellegrino <hallo@annapellegrino.de>",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "generate-wall-server": ""
+  },
+  "devDependencies": {
+    "@harmowatch/openapi-generator-cli": "^0.0.3-3.3.3"
+  }
+}

@@ -24,6 +24,10 @@
     {
       "url": "https://dev.phrases.tiqua.de/api/wall/v1",
       "description": "Development and testing"
+    },
+    {
+      "url": "http://localhost:5101/api/wall/v1",
+      "description": "Local development"
     }
   ],
   "tags": [
@@ -121,7 +125,7 @@
     },
     "/positive/phrases/{id}": {
       "get": {
-        "summary": "Returns the negative phrase with the given ID",
+        "summary": "Returns the positive phrase with the given ID",
         "operationId": "get_positive_phrase_by_id",
         "tags": [
           "positive_phrases"
@@ -139,7 +143,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The negative phrase",
+            "description": "The positive phrase",
             "content": {
               "application/json": {
                 "schema": {

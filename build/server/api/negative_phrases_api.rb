@@ -2,6 +2,7 @@ require 'json'
 
 require './lib/backend'
 
+@@negative_test_count = 0
 
 MyApp.add_route('GET', '/api/wall/v1/negative/phrases/{id}', {
   "resourcePath" => "/NegativePhrases",
@@ -26,7 +27,7 @@ MyApp.add_route('GET', '/api/wall/v1/negative/phrases/{id}', {
     error(400)
   end
 
-  phrase = Backend::PHRASES[:negative].find do |phrase|
+  phrase = Backend::PHRASES[@@negative_test_count][:negative].find do |phrase|
     id_int == phrase.id
   end
 
@@ -49,5 +50,7 @@ MyApp.add_route('GET', '/api/wall/v1/negative/phrases', {
     ]}) do
   cross_origin
 
-  Backend::PHRASES[:negative].to_json
+  phrases = Backend::PHRASES[@@negative_test_count][:negative]
+  @@negative_test_count += 1 if @@negative_test_count < Backend::PHRASES.size - 1
+  phrases.to_json
 end

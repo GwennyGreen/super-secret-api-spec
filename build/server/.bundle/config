@@ -1,3 +1,0 @@
----
-BUNDLE_ALLOW_OFFLINE_INSTALL: "true"
-BUNDLE_PATH: "vendor/bundle"

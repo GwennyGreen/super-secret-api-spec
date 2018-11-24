@@ -1,7 +1,7 @@
 {
   "name": "super-secret-api-spec",
   "version": "0.0.1",
-  "repository": "git@github.com:GwennyGreen/super-secret-led-wall.git",
+  "repository": "git@github.com:GwennyGreen/super-secret-api-spec.git",
   "author": "Anna Pellegrino <hallo@annapellegrino.de>",
   "license": "UNLICENSED",
   "private": true,

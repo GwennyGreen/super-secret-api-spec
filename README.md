@@ -1,39 +1,24 @@
+# Purpose
+
+This repository contains the API specification in OpenAPI 3 format. Server and client stubs can be generated from this API specification.
+
 # Requirements
 
+- Node.js
 - Yarn
-
-# Installation
-
-```
-cd build/server && bundle install
-```
-
 
 # Usage
 
-## Running the server
-
-```
-bundle exec rackup -p 5101 config.ru
-```
-
-## Testing the server
-
-```
-curl 'http://localhost:5101/api/wall/v1/negative/phrases'
-```
-
-
-# Maintenance
-
 ## Generating server stubs from scratch
 
-This should normally not be necessary.
+The following Bash snippet is for generating server stubs.
+The resulting server stubs are not meant to be committed to this repository.
 
 ```
 (
   set -ex
 
+  yarn install
   trash build/server || true
 
   yarn openapi-generator generate \

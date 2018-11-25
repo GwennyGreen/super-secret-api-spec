@@ -9,6 +9,7 @@
     "generate-wall-server": ""
   },
   "devDependencies": {
-    "@harmowatch/openapi-generator-cli": "^0.0.3-3.3.3"
+    "@harmowatch/openapi-generator-cli": "^0.0.3-3.3.3",
+    "trash-cli": "^1.4.0"
   }
 }
